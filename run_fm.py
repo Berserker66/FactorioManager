@@ -8,6 +8,4 @@ if __name__ == "__main__":
     freeze_support()
     runpy.run_module('FactorioManager', run_name="__main__")
 
-if False:
-    import omnitool  # freeze hook
 
