@@ -14,7 +14,7 @@ if is_frozen:
     import os
     if os.stat(errorlog).st_size > 10:
         import shutil
-        shutil.move(errorlog, errorlog+".temp")
+        shutil.move(errorlog, errorlog+".temp.txt")
         import webbrowser
         webbrowser.open(errorlog+".temp")
     sys.stderr = open(errorlog, "w")
@@ -29,11 +29,13 @@ if DEBUG:
     print(", ".join(ModIndex.index))
 
 if len(sys.argv) > 1:
+    print(len(sys.argv[1]))
     if sys.argv[1].startswith(r"factoriomods://"):
-        mod = sys.argv[1].lstrip(r"factoriomods://")
+        mod = sys.argv[1].split(r"//")[1]
         import base64
         mod = base64.b64decode(mod)
-        print(len(mod))
+        #uri is about to change - wait for that to happen
+
 
 
 

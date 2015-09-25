@@ -1,11 +1,7 @@
 __author__ = 'Fabian'
 
 import configparser
-if __name__ == "__main__":
-    from paths import configpath
-else:
-    from .paths import configpath
-
+from .paths import configpath
 
 
 class ConfigManager():
