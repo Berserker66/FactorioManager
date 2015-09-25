@@ -8,5 +8,6 @@ install:
   - pip install cx_Freeze
 
 script:
+  - python -m unittest tests
   - python setup.py build
-  - python tests.py
+
