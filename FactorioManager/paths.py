@@ -16,7 +16,7 @@ errorlog = join(tempfolder, "errorlog.txt")
 assert(tempfolder != directories.user_config_dir)
 
 if not os.path.exists(directories.user_config_dir):
-    os.mkdir(directories.user_config_dir)
+    os.makedirs(directories.user_config_dir)
 
 def get_instances():
     paths = set()
@@ -41,6 +41,6 @@ def clean():
             except PermissionError:
                 pass
     else:
-        os.mkdir(tempfolder)
+        os.makedirs(tempfolder)
 
 clean()
