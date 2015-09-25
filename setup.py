@@ -1,4 +1,3 @@
-from distutils.core import setup
 import os
 import shutil
 import cx_Freeze

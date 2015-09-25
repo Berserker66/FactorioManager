@@ -19,7 +19,7 @@ DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputBaseFilename=setup
-SetupIconFile=E:\FactorioManager\factoriomanager\icon.ico
+SetupIconFile=icon.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -59,8 +59,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "E:\FactorioManager\factoriomanager\build\exe.win32-3.4\FactorioManager.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\FactorioManager\factoriomanager\build\exe.win32-3.4\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "build\exe.win32-3.4\FactorioManager.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\exe.win32-3.4\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"

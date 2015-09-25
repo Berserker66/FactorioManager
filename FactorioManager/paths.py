@@ -10,6 +10,8 @@ directories = appdirs.AppDirs("FactorioManager", "", roaming=True)
 
 configpath = join(directories.user_config_dir, "config.cfg")
 tempfolder = appdirs.user_cache_dir("FactorioManager", "", opinion=False)
+log = join(tempfolder, "log.txt")
+errorlog = join(tempfolder, "errorlog.txt")
 
 assert(tempfolder != directories.user_config_dir)
 
