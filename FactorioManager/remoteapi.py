@@ -12,7 +12,6 @@ def convert(mod):
     return mod
 
 def download(mod, target = tempfolder, callback = None):
-    print("Downloading", mod["title"])
     url = mod["releases"][0]["files"][0]["mirror"]
     if not url:
         url = mod["releases"][0]["files"][0]["url"]

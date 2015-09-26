@@ -7,7 +7,7 @@ broken_mods = {"5dim mod", "Air Filtering", "canInsert"}
 
 
 class TestRemoteAPI(unittest.TestCase):
-
+    indextestfields = ["title", "contact", "name", "homepage", "author"]
     def test_index(self):
         from FactorioManager import remoteapi
         index = remoteapi.ModIndex
@@ -29,12 +29,18 @@ class TestRemoteAPI(unittest.TestCase):
         for i,mod in enumerate(remoteapi.ModIndex.list):
             modname = mod["title"]
             with self.subTest(modname):
-                print("Testing mod {} of {}.".format(i, len(remoteapi.ModIndex.list)))
+                print("Testing mod {} of {}.".format(i + 1, len(remoteapi.ModIndex.list)))
                 loc = remoteapi.download(mod)
-                ret = ModFile.checkfile(loc)
+                modfile = ModFile(loc)
+                ret = modfile.check()
                 if ret != True:
                     if modname in broken_mods:
                         self.skipTest("Mod {} is expected to fail: {}".format(modname,ret))
                     raise ret
                 elif modname in broken_mods:
                     self.fail("Mod {} is repaired, but still listed as broken.".format(modname))
+                else:
+                    with self.subTest(modname + " Sanity Check"):
+                        info = modfile.get_info()
+                        for field in self.indextestfields:
+                            self.assertEqual(info[field], mod[field])
