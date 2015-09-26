@@ -43,4 +43,9 @@ class TestRemoteAPI(unittest.TestCase):
                     with self.subTest(modname + " Sanity Check"):
                         info = modfile.get_info()
                         for field in self.indextestfields:
-                            self.assertEqual(info[field], mod[field])
+                            if field in info and field not in mod:
+                                self.fail("Infofield {} is in info.json but not in index.".format(field))
+                            elif field not in info and field in mod:
+                                self.fail("Infofield {} is in index but not in info.json.".format(field))
+                            elif field in info and field in mod:
+                                self.assertEqual(info[field], mod[field])
